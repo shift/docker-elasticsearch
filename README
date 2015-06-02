@@ -1,0 +1,31 @@
+# Elasticsearch
+
+Docker image inheritance:
+ * shift/java:8
+ * shift/ubuntu:15.04
+ * ubuntu:15.04
+
+## Volumes
+
+Elasticsearch data directory is `/data`.
+
+Configuration is defined as:
+```
+path:
+  data: /data/data
+  logs: /data/log
+  plugins: /data/plugins
+  work: /data/work
+```
+
+## Ports
+
+Exposed ports:
+ * 9200/tcp
+ * 9300/tcp
+
+## Example usage
+
+```
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -v /opt/elasticsearch:/data shift/elasticsearch
+```
